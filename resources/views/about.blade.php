@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
     <h1>About Page</h1>
     <h3>nama: {{ $nama }}</h3>
 </body>
