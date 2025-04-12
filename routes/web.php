@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,11 @@ Route::get('/posts/{post:slug}', function (Post $post) {
 
 Route::get('/authors/{user}', function (User $user) {
 
-    return view('posts', ['title' => 'Article by' . $user->name, 'posts' => $user->posts]);
+    return view('posts', ['title' => 'Article by ' . $user->name, 'posts' => $user->posts]);
+});
+
+Route::get('/category/{category:category_name}', function(Category $category){
+    return view('posts', ['title' => 'Article with category ' . $category->category_name, 'posts' => $category->posts]);
 });
 
 Route::get('/contact', function () {
