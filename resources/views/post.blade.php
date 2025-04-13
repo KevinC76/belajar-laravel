@@ -14,7 +14,7 @@
             {{ $post->created_at->format('j F Y') }} 2025
         </div>
         <p class="my-4 font-light">{{ $post['body'] }}</p>
-        <a href="/posts" class="font-medium text-blue-500 hover:underline">Back to Posts &laquo;</a>
+        <a href="/posts" class="font-medium text-blue-500 hover:underline">Back to Posts</a>
     </article> --}}
 
 

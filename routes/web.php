@@ -19,7 +19,12 @@ Route::get('/about', function () {
 Route::get('/posts', function () {
     // eager loading
     // $posts = Post::with(['author', 'category'])->latest()->get();
-    return view('posts', ['title' => 'Blog Page', 'posts' => Post::Filter(request(['search', 'category', 'author']))->latest()->get()]);
+
+    # cara 1 tanpa halaman page
+    // return view('posts', ['title' => 'Blog Page', 'posts' => Post::Filter(request(['search', 'category', 'author']))->latest()->simplePaginate(10)->withQueryString()]);
+
+    // cara 2 dengan halaman page
+    return view('posts', ['title' => 'Blog Page', 'posts' => Post::Filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {

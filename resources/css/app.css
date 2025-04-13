@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'flowbite/src/themes/default';
 @source "../views";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @plugin "flowbite/plugin";
 @plugin "flowbite-typography";
