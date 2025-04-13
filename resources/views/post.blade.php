@@ -30,11 +30,11 @@
                                 src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                                 alt="{{ $post->author->name }}">
                             <div>
-                                <a href="/author/{{ $post->author->username }}" rel="author"
+                                <a href="/posts?author={{ $post->author->username }}" rel="author"
                                     class="text-xl font-bold text-gray-900 dark:text-white">{{ $post->author->name }}</a>
                                 <p class="text-base text-gray-500 dark:text-gray-400 mb-1">
                                     {{ $post->created_at->format('j F Y') }}</p>
-                                <a href="/category/{{ $post->category->category_name }}"
+                                <a href="/posts?category={{ $post->category->category_name }}"
                                     class="bg-{{ $post->category->color }}-100 text-white text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                                     {{ $post->category->category_name }}
                                 </a>
