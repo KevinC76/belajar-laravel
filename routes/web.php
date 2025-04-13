@@ -25,9 +25,9 @@ Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
 
-Route::get('/authors/{user}', function (User $user) {
+Route::get('/authors/{user:username}', function (User $user) {
 
-    return view('posts', ['title' => 'Article by ' . $user->name, 'posts' => $user->posts]);
+    return view('posts', ['title' => count($user->posts) . ' Article by ' . $user->name, 'posts' => $user->posts]);
 });
 
 Route::get('/category/{category:category_name}', function(Category $category){
