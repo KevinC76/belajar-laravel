@@ -17,10 +17,16 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
+    $post = Post::latest();
+
+    // dump(request('search'));
+    if (request('search')) {
+        $post->where('title', 'like', '%' . request('search') . '%');
+    }
+
     // eager loading
     // $posts = Post::with(['author', 'category'])->latest()->get();
-    $post = Post::latest()->get();
-    return view('posts', ['title' => 'Blog Page', 'posts' => $post]);
+    return view('posts', ['title' => 'Blog Page', 'posts' => $post->get()]);
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
